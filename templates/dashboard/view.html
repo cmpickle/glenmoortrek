@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load staticfiles %}
+
+
+
+{% block content %}
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="col-sm-12 text-center">
+				<h1>Glenmoor Stake Trek</h1>
+      <img style="margin-top:20px;margin:0 auto;" src="{% static 'img/handcart.jpg' %}" class="img-responsive" />
+    </div>
+  </div>
+</div>
+{{form}}
+
+
+{% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
+<div class="row">
+<div class="col-md-offset-4 col-md-4">
+			<form class="navbar-form" method="POST" action="{% url 'auth_login' %}">
+				{% csrf_token %}
+				<div style="width:100%" class="form-group">
+					<input style="width:100%" type="text" placeholder="Username" name="username" class="form-control">
+				</div>
+			<br/>
+			<br/>
+				<div style="width:100%" class="form-group">
+					<input style="width:100%" type="password" placeholder="Password" name="password" class="form-control">
+				</div>
+				<hr/>
+				<button style="padding-left:6px; padding-right:6px;" type="submit" class="btn btn-primary btn-block">Login <i class="fa fa-sign-in"></i></button>
+			</form>
+			<p class="text-center btn btn-block"><a href="{% url 'auth_password_reset' %}">Forgot password?</a></p>
+</div>
+</div>
+{% endif %}
+
+<!-- <div class="row">
+	<div class="col-sm-4">
+		<div class="thumbnail">
+    </div>
+	</div>
+	<div class="col-sm-4">
+		<div class="thumbnail">
+    </div>
+	</div>
+	<div class="col-sm-4">
+		<div class="thumbnail">
+    </div>
+	</div>
+</div> -->
+
+
+<!-- {% if curated.count > 0 %}
+<div class="">
+	{% for curated_section in curated %}
+		<h1>{{ curated_section.section_name }}</h1>
+		{% include "products/product_list_snippet.html" with product_list=curated_section.products.all %}
+	{% endfor %}
+</div>
+{% endif %} -->
+
+{% endblock content %}

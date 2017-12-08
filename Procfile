@@ -1,0 +1,1 @@
+web: gunicorn trek.wsgi --log-file -
