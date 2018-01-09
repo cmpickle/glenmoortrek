@@ -56,6 +56,8 @@ INSTALLED_APPS = (
     'registration',
     'crispy_forms',
     # Trek Apps
+    'dashboard',
+    'achievement',
 )
 
 MIDDLEWARE_CLASSES = (

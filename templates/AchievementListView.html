@@ -1,0 +1,7 @@
+{% load staticfiles %}
+
+{% for i in object_list %}
+    {{i.title}}
+    {{i.description}}
+    <img style="width:30px;" src="{{i.image.url}}"/>
+{% endfor %}
