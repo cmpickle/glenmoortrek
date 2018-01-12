@@ -16,6 +16,4 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     #Registration views
     url(r'^accounts/', include('registration.backends.hmac.urls')),
-    #Achievement List View
-    url(r'^achievements/$', AchievementListView.as_view(), name='Achievements')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

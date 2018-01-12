@@ -44,6 +44,30 @@
 	<h1>Hi, {{ user.get_username }}!</h1>
 	<img style="margin-top:20px;margin:0 auto;" src="{% static 'img/pioneer.png' %}" class="img-responsive" />
 </div>
+
+<div class="row">
+   <div class="col-md-12">
+       <h1>Achievements</h1>
+   </div>
+   {% for i in object_list %}
+       <div class="col-md-4">
+           <div class="thumbnail">
+               <img src="{{ i.image.url }}" />
+               <div class="caption">
+                   <h4>
+                       {% for user in i.users.all %}
+                           {% if request.user == user %}
+                               <i style="color: green;" class="fa fa-check-circle-o" aria-hidden="true"></i>
+                           {% endif %}
+                       {% endfor %}
+                       {{i.title}}
+                   </h4>
+                   <p class="card-text">{{i.description}}</p>
+               </div>
+           </div>
+       </div>
+   {% endfor %}
+</div>
 {% endif %}
 
 <!-- <div class="row">
