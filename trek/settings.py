@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     # Trek Apps
     'dashboard',
     'achievement',
+    'userProfile',
 )
 
 MIDDLEWARE_CLASSES = (
