@@ -42,7 +42,7 @@
 {% if request.user.is_authenticated %}
 <div class="col-sm-12 text-center">
 	<h1>Hi, {{ user.get_username }}!</h1>
-	<img style="margin-top:20px;margin:0 auto;" src="{% static 'img/pioneer.png' %}" class="img-responsive" />
+	<img style="margin-top:20px;margin:0 auto; height:300px;" src="{% static 'img/pioneer.png' %}" class="img-responsive" />
 </div>
 
 <div class="row">
@@ -52,7 +52,12 @@
    {% for i in object_list %}
        <div class="col-md-4">
            <div class="thumbnail">
-               <img src="{{ i.image.url }}" />
+			   <img src="{{ i.image.url }}" />
+			   {% for user in i.users.all %}
+					    {% if request.user == user %}
+					   		<div style="background: yellow;">
+						{% endif %}
+				{% endfor %}
                <div class="caption">
                    <h4>
                        {% for user in i.users.all %}
@@ -64,6 +69,11 @@
                    </h4>
                    <p class="card-text">{{i.description}}</p>
                </div>
+			   {% for user in i.users.all %}
+						{% if request.user == user %}
+			   				</div>
+						{% endif %}
+				{% endfor %}
            </div>
        </div>
    {% endfor %}

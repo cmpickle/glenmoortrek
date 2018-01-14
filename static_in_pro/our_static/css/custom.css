@@ -29,3 +29,7 @@
   color: red;
   text-decoration: line-through;
 }
+
+.complete_achievement{
+  background: yellow;
+}
