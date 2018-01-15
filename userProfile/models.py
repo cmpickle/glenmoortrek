@@ -18,7 +18,7 @@ class UserProfile(models.Model):
     lastName = models.CharField(max_length = 20, default="")
 
     def __str__(self):
-        return "%s: %s %s" %(self.user, firstName, lastName)
+        return "%s: %s %s" %(self.user, self.firstName, self.lastName)
 
     def __unicode__(self):
-        return "%s: %s %s" %(self.user, firstName, lastName)
+        return "%s: %s %s" %(self.user, self.firstName, self.lastName)
