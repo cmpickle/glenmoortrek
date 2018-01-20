@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'riz##!khrd0pg@v!eb+^no*$cz9)qlaj%oq$fi=u4vzl*k0a0r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -56,6 +56,9 @@ INSTALLED_APPS = (
     'registration',
     'crispy_forms',
     # Trek Apps
+    'dashboard',
+    'achievement',
+    'userProfile',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -96,8 +99,12 @@ WSGI_APPLICATION = 'trek.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ddhiu5671dh8jj',
+        'USER': 'pnhjjoxchuehix',
+        'PASSWORD': '133968b32c5a68272397f6755870596bf60afd190e04237c10978054a3b8c90a',
+        'HOST': 'ec2-23-21-164-107.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -132,6 +139,9 @@ if DEBUG == True:
         os.path.join(BASE_DIR, "static_in_pro", "our_static"),
     ]
 if DEBUG == False:
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 LOGGING = {

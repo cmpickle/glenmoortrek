@@ -1,13 +1,15 @@
 from django.shortcuts import render
-from django.views.generic import View
+from django.http import HttpResponse
+from django.views.generic import ListView
+
+from achievement.models import Achievement
 
 # Create your views here.
 
-class DashboardView(View):
-	def get(self, request, *args, **kwargs):
-		# curated = CuratedProducts.objects.filter(active=True).order_by("?")
+class DashboardView(ListView):
+	model = Achievement
+	template_name = "dashboard/view.html"
 
-		context = {
-		# 	"curated": curated,
-		}
-		return render(request, "dashboard/view.html", context)
+	def get_context_data(self, **kwargs):
+		context = super(DashboardView, self).get_context_data(**kwargs)
+		return context
