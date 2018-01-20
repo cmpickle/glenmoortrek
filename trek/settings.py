@@ -139,7 +139,7 @@ if DEBUG == True:
         os.path.join(BASE_DIR, "static_in_pro", "our_static"),
     ]
 if DEBUG == False:
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
     STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
