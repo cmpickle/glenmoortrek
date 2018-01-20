@@ -131,7 +131,7 @@ if DEBUG == True:
 
     MEDIA_URL = '/media/'
 
-    STATIC_ROOT = '/static/'
+    STATIC_ROOT = '/app/static_in_pro/'
 
     MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "media_root")
 
@@ -145,7 +145,7 @@ if DEBUG == False:
     
     # Extra places for collectstatic to find static files.
     STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'static'),
+        os.path.join(BASE_DIR, '/app/static_in_pro'),
     )
 
 LOGGING = {
