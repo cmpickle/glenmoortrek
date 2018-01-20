@@ -139,10 +139,9 @@ if DEBUG == True:
         os.path.join(BASE_DIR, "static_in_pro", "our_static"),
     ]
 if DEBUG == False:
-    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+    # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
     STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 LOGGING = {
     'version': 1,
