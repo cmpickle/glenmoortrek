@@ -12,6 +12,7 @@ urlpatterns = [
 
     #handle dashboard views
     url(r'^$', DashboardView.as_view(), name='dashboard'),
+    url(r'^/$', DashboardView.as_view(), name='dashboard'),
     #Admin View
     url(r'^admin/', include(admin.site.urls)),
     #Registration views
