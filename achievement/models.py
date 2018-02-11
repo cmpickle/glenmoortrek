@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Achievement(models.Model):
     title = models.CharField(max_length=50)
 
-    image = models.ImageField(upload_to='achievemnt_images')
+    # image = models.ImageField(upload_to='achievemnt_images')
 
     description = models.CharField(max_length=250)
 
