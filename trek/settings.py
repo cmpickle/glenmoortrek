@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'riz##!khrd0pg@v!eb+^no*$cz9)qlaj%oq$fi=u4vzl*k0a0r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -91,7 +91,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'trek.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Database
@@ -139,7 +139,8 @@ if DEBUG == True:
         os.path.join(BASE_DIR, "static_in_pro", "our_static"),
     ]
 if DEBUG == False:
-    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+    # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+    STATICFILES_STORAGE = 'django.contrib.storage.ManifestStaticFilesStorage'
     STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     
