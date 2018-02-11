@@ -8,7 +8,7 @@
     {% for i in object_list %}
         <div class="col-md-4">
             <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="{{ i.image.url }}" />
+                <img class="card-img-top" src="{% static 'img/trophy.jpg' %}" />
                 <div class="card-block" style="margin:1em;">
                     <h4 class="card-title">
                         {% for user in i.users.all %}
