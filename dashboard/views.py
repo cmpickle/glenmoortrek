@@ -13,3 +13,7 @@ class DashboardView(ListView):
 	def get_context_data(self, **kwargs):
 		context = super(DashboardView, self).get_context_data(**kwargs)
 		return context
+
+
+def listView(request):
+    return render(request, "dashboard/view.html", {})
