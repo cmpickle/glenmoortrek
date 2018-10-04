@@ -5,14 +5,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 from achievement.views import AchievementListView
 
+from dashboard import listView 
+
 urlpatterns = [
     # Examples:
     # url(r'^$', 'trek.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
     #handle dashboard views
-    url(r'^$', DashboardView.as_view(), name='dashboard'),
-    url(r'^/$', DashboardView.as_view(), name='dashboard'),
+    #url(r'^$', DashboardView.as_view(), name='dashboard'),
+    #url(r'^/$', DashboardView.as_view(), name='dashboard'),
+
+    url(r'^$', include(listView, namespace='listView')),
     #Admin View
     url(r'^admin/', include(admin.site.urls)),
     #Registration views
